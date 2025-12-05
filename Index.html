@@ -49,8 +49,17 @@
 <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-    const config = { apiKey: "AIzaSy...", authDomain: "...", projectId: "..." }; // ⚠️ ใส่ Config
-    try { firebase.initializeApp(config); } catch(e){}
+    // ✅ Config ของคุณ
+    const config = {
+        apiKey: "AIzaSyA2NTzJKFK3GtULDl-l2EvEH3VamDh-VZI",
+        authDomain: "chat-27f96.firebaseapp.com",
+        databaseURL: "https://chat-27f96-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "chat-27f96",
+        storageBucket: "chat-27f96.firebasestorage.app",
+        messagingSenderId: "336686938010",
+        appId: "1:336686938010:web:9ea0e0ddd8d93e8358ec23"
+    };
+    firebase.initializeApp(config);
     const auth = firebase.auth(), db = firebase.firestore();
     let uid = null;
 
@@ -73,7 +82,6 @@
     function init() {
         db.collection('users').doc(uid).onSnapshot(d => { if(d.exists) document.getElementById('bal').innerText = d.data().balance.toFixed(2); });
 
-        // Available Jobs
         db.collection('orders').where('status','==','pending').onSnapshot(snap => {
             let h = '';
             snap.forEach(d => {
@@ -88,7 +96,6 @@
             document.getElementById('job-list').innerHTML = h || 'ไม่มีงานว่าง';
         });
 
-        // My Jobs
         db.collection('orders').where('riderId','==',uid).onSnapshot(snap => {
             let h = '';
             snap.forEach(d => {
