@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>คู่มือการใช้งาน | เดิมพัน เป่า XO by RS</title>
+    <title>คู่มือและกลุ่มเดิมพัน | เดิมพัน เป่า XO by RS</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;600;800&family=Prompt:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -44,51 +44,27 @@
             100% { transform: translateY(-10vh) translateX(20px); opacity: 0; }
         }
 
-        /* Accordion Styles */
+        /* UI Components */
         .acc-item {
-            margin-bottom: 15px;
-            border-radius: 16px;
-            overflow: hidden;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 15px; border-radius: 16px; overflow: hidden;
+            background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.3s ease;
         }
         .acc-item.active {
-            background: rgba(30, 41, 59, 0.6);
-            border-color: rgba(217, 70, 239, 0.5);
+            background: rgba(30, 41, 59, 0.6); border-color: rgba(217, 70, 239, 0.5);
             box-shadow: 0 0 20px rgba(217, 70, 239, 0.15);
         }
-
         .acc-header {
-            width: 100%;
-            padding: 20px;
-            display: flex; justify-content: space-between; align-items: center;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 1.1rem;
-            color: #cbd5e1;
-            transition: 0.3s;
+            width: 100%; padding: 20px; display: flex; justify-content: space-between; align-items: center;
+            cursor: pointer; font-weight: bold; font-size: 1.1rem; color: #cbd5e1; transition: 0.3s;
         }
         .acc-item.active .acc-header { color: #fff; }
         .acc-icon { transition: transform 0.3s; }
         .acc-item.active .acc-icon { transform: rotate(180deg); color: #d946ef; }
-
-        .acc-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-in-out, opacity 0.4s;
-            opacity: 0;
-            background: rgba(0,0,0,0.2);
-        }
-        .acc-item.active .acc-content {
-            opacity: 1;
-        }
+        .acc-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out, opacity 0.4s; opacity: 0; background: rgba(0,0,0,0.2); }
+        .acc-item.active .acc-content { opacity: 1; }
         .content-inner { padding: 20px; color: #94a3b8; font-size: 0.95rem; line-height: 1.6; }
-
-        .step-badge {
-            display: inline-block; width: 24px; height: 24px; text-align: center;
-            background: #4f46e5; color: white; border-radius: 50%; font-size: 0.8rem; margin-right: 8px;
-        }
+        .step-badge { display: inline-block; width: 24px; height: 24px; text-align: center; background: #4f46e5; color: white; border-radius: 50%; font-size: 0.8rem; margin-right: 8px; }
     </style>
 </head>
 <body class="min-h-screen pb-20 font-sans selection:bg-purple-500 selection:text-white">
@@ -96,12 +72,25 @@
     <div class="bg-cyber"></div>
     <div id="particles"></div>
 
-    <header class="pt-12 pb-8 text-center animate__animated animate__fadeInDown">
+    <nav class="sticky top-0 z-50 bg-[#020617]/90 backdrop-blur border-b border-white/10 px-4 py-3 flex justify-between items-center shadow-lg">
+        <div class="flex items-center gap-2">
+            <div class="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center font-bold text-white"><i class="fa-solid fa-book"></i></div>
+            <span class="font-bold text-lg hidden md:block">HELP CENTER</span>
+        </div>
+
+        <div>
+            <a href="index.html" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-white text-sm font-bold transition border border-slate-700 flex items-center gap-2">
+                <i class="fa-solid fa-arrow-left"></i> <span>กลับหน้าเกม</span>
+            </a>
+        </div>
+    </nav>
+
+    <header class="pt-8 pb-6 text-center animate__animated animate__fadeInDown">
         <div class="inline-flex items-center justify-center p-4 mb-4 rounded-full bg-white/5 border border-white/10 backdrop-blur shadow-2xl animate-pulse-slow">
             <i class="fa-solid fa-circle-info text-3xl text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-pink-400"></i>
         </div>
         <h1 class="text-4xl font-black text-white tracking-wide mb-2">คู่มือการใช้งาน</h1>
-        <p class="text-slate-500 text-sm tracking-widest uppercase">คลิกที่หัวข้อเพื่อดูรายละเอียด</p>
+        <p class="text-slate-500 text-sm tracking-widest uppercase">คลิกหัวข้อด้านล่างเพื่ออ่าน</p>
     </header>
 
     <main class="max-w-3xl mx-auto px-4 relative z-10">
@@ -112,7 +101,7 @@
                 <button class="acc-header" onclick="toggleAcc(this)">
                     <div class="flex items-center gap-3">
                         <i class="fa-solid fa-users-line text-purple-400 text-xl"></i>
-                        ขั้นตอนการเดิมพัน 
+                        ขั้นตอนการเดิมพัน
                     </div>
                     <i class="fa-solid fa-chevron-down acc-icon"></i>
                 </button>
@@ -127,13 +116,13 @@
                         <div class="flex items-start">
                             <span class="step-badge bg-purple-600">2</span>
                             <div>
-                                <strong class="text-white">สร้างกลุ่ม:</strong> Messenger เชิญ <span class="text-yellow-400">แอดมิน</span> และคู่เดิมพันเข้ากลุ่ม
+                                <strong class="text-white">สร้างกลุ่ม:</strong> ตั้งกลุ่ม Messenger เชิญ <span class="text-yellow-400">แอดมิน</span> และคู่เดิมพันเข้ากลุ่ม
                             </div>
                         </div>
                         <div class="flex items-start">
                             <span class="step-badge bg-pink-600">3</span>
                             <div>
-                                <strong class="text-white">โอนเงินกลาง:</strong> ทั้งสองฝ่ายโอนเงินยอดเดิมพันฝากไว้ที่แอดมิน (เพื่อความปลอดภัย)
+                                <strong class="text-white">โอนเงินวางกลาง:</strong> ทั้งสองฝ่ายโอนเงินยอดเดิมพันฝากไว้ที่แอดมิน (เพื่อความปลอดภัย)
                             </div>
                         </div>
                         <div class="flex items-start">
@@ -206,6 +195,16 @@
 
         </div>
 
+        <div class="mt-12 space-y-4 animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
+            <div class="text-center p-6 bg-white/5 rounded-2xl border border-white/5">
+                <p class="text-slate-400 mb-4 text-sm font-light">ยังไม่มีคู่เล่น? หรือต้องการหาเพื่อนเดิมพัน?</p>
+                <a href="https://m.me/j/Abbe31IIxzSRr3-c/" target="_blank" class="block w-full max-w-sm mx-auto p-4 rounded-xl bg-[#1877F2] hover:bg-[#166fe5] text-white font-bold shadow-lg shadow-blue-900/50 transition transform hover:-translate-y-1 flex items-center justify-center gap-3">
+                    <i class="fa-brands fa-facebook text-2xl"></i>
+                    <span>เข้ากลุ่มหาคู่เดิมพัน (Facebook)</span>
+                </a>
+            </div>
+        </div>
+
     </main>
 
     <script>
@@ -213,11 +212,6 @@
         function toggleAcc(btn) {
             const item = btn.parentElement;
             const content = item.querySelector('.acc-content');
-            
-            // Close others (Optional: ถ้าอยากให้เปิดได้ทีละอัน ให้ uncomment บรรทัดล่างนี้)
-            // document.querySelectorAll('.acc-item').forEach(i => { if(i!==item) { i.classList.remove('active'); i.querySelector('.acc-content').style.maxHeight = null; } });
-
-            // Toggle Current
             item.classList.toggle('active');
             if (item.classList.contains('active')) {
                 content.style.maxHeight = content.scrollHeight + "px";
@@ -250,6 +244,7 @@
         if(!firebase.apps.length) firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
 
+        // Admin Contact Link
         db.collection('config').doc('settings').onSnapshot(doc => {
             const c = doc.data() || {};
             const link = document.getElementById('contact-link');
